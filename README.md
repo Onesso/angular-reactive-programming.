@@ -10,4 +10,8 @@ using the async pipe the the home template can subscribe and get the data.
 
 Now that the template are set we maust make the variable to consume the data as follows in the component.
 
-Now we are going to sort the data the we have already received. We will sort it at the level where we call(make a reference call) the data
+Now we are going to sort the data the we have already received. We will sort it at the level where we call(make a reference call) the data.
+
+## Avoiding angular duplicated HTTP request with the rxjs shareReplay operator
+
+Problem arise since we have two subscribers consumming the observable, it will result into two http request to solve this we will use shareReplay operator.
