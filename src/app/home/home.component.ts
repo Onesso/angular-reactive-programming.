@@ -24,7 +24,6 @@ import { CourseServices } from "../services/course.services";
   standalone: false,
 })
 export class HomeComponent implements OnInit {
-  
   beginnerCourses$: Observable<Course[]>;
   advancedCourses$: Observable<Course[]>;
 
@@ -34,7 +33,21 @@ export class HomeComponent implements OnInit {
   ) {}
 
   ngOnInit() {
+
     const course$ = this.courseService.loadallCourses();
+
+    this.beginnerCourses$ = course$.pipe(
+      map((courses) =>
+        courses.filter((course) => course.category == "BEGINNER")
+      )
+    );
+
+    this.advancedCourses$ = course$.pipe(
+      map((courses) =>
+        courses.filter((course) => course.category == "ADVANCED")
+      )
+    );
+    
   }
 
   editCourse(course: Course) {
