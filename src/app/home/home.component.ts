@@ -12,7 +12,7 @@ import {
   shareReplay,
   tap,
 } from "rxjs/operators";
-import { HttpClient } from "@angular/common/http";
+
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { CourseDialogComponent } from "../course-dialog/course-dialog.component";
 import { CourseServices } from "../services/course.services";
@@ -24,28 +24,17 @@ import { CourseServices } from "../services/course.services";
   standalone: false,
 })
 export class HomeComponent implements OnInit {
-  beginnerCourses: Course[];
-
-  advancedCourses: Course[];
+  
+  beginnerCourses$: Observable<Course[]>;
+  advancedCourses$: Observable<Course[]>;
 
   constructor(
-
     private courseService: CourseServices,
     private dialog: MatDialog
   ) {}
 
   ngOnInit() {
-    this.http.get("/api/courses").subscribe((res) => {
-      const courses: Course[] = res["payload"].sort(sortCoursesBySeqNo);
-
-      this.beginnerCourses = courses.filter(
-        (course) => course.category == "BEGINNER"
-      );
-
-      this.advancedCourses = courses.filter(
-        (course) => course.category == "ADVANCED"
-      );
-    });
+    const course$ = this.courseService.loadallCourses();
   }
 
   editCourse(course: Course) {

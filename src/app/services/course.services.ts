@@ -8,7 +8,7 @@ import { Observable } from "rxjs";
   providedIn: "root",
 })
 export class CourseServices {
-    
+
   constructor(private http: HttpClient) {}
 
   loadallCourses(): Observable<Course[]> {
