@@ -16,7 +16,7 @@ import {
 import { MatDialog, MatDialogConfig } from "@angular/material/dialog";
 import { CourseDialogComponent } from "../course-dialog/course-dialog.component";
 import { CourseServices } from "../services/course.services";
-
+import { CoursesCardListComponent } from "../courses-card-list/courses-card-list.component";
 @Component({
   selector: "home",
   templateUrl: "./home.component.html",
@@ -32,6 +32,7 @@ export class HomeComponent implements OnInit {
     private dialog: MatDialog
   ) {}
 
+  //we are sorting the courses first then we will filter afterwards.
   ngOnInit() {
     const course$ = this.courseService
       .loadallCourses()

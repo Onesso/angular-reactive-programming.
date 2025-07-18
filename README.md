@@ -15,3 +15,7 @@ Now we are going to sort the data the we have already received. We will sort it 
 ## Avoiding angular duplicated HTTP request with the rxjs shareReplay operator
 
 Problem arise since we have two subscribers consumming the observable, it will result into two http request to solve this we will use shareReplay operator.
+
+## Creating reusable components
+
+i have created a reusable component for advance course.Can make a comparison with the beginnersto see the changes.
