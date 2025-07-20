@@ -30,4 +30,8 @@ export class CoursesCardListComponent {
 
     const dialogRef = this.dialog.open(CourseDialogComponent, dialogConfig);
   }
+  logid(id: number) {
+    console.log("View course pressed. id is:");
+    console.log(id);
+  }
 }

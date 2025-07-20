@@ -18,4 +18,6 @@ Problem arise since we have two subscribers consumming the observable, it will r
 
 ## Creating reusable components
 
-i have created a reusable component for advance course.Can make a comparison with the beginnersto see the changes.
+i have created a reusable component for advance course.Can make a comparison with the beginnersto see the changes
+
+in a creating usable components you can have a presentation component and a smart component. where presentation component can only display (it only has an input for taking in data){courses-card-list}, while smart is responsible for fetch/knowing where the data is comming from{home.component}.

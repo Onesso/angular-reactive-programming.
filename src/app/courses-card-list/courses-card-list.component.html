@@ -15,6 +15,7 @@
       mat-raised-button
       color="primary"
       [routerLink]="['/courses', course.id]"
+      (click)="logid(course.id)"
     >
       VIEW COURSE
     </button>
